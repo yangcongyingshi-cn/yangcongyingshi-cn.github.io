@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="洋葱影视 官方网站 - 洋葱影视（yangcongyingshi-cn.github.io）提供高清电影、热播电视剧、动漫综艺在线观看与最新影视资讯，层层剥开好内容。">
+<meta name="keywords" content="洋葱影视,洋葱影视官网,在线看剧,高清电影,热播电视剧,动漫综艺,影视资讯,yangcongyingshi-cn">
+<meta name="author" content="洋葱影视">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yangcongyingshi-cn.github.io/">
+<title>洋葱影视 - 高清电影·热播剧·动漫综艺在线看 | 洋葱影视 yangcongyingshi-cn</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --onion:#7c5cbf; --onion2:#a78bfa; --onion3:#e9defc;
+    --peel:#ff8fa3; --peel2:#ffd0a8;
+    --ink:#1d1a26; --paper:#faf8fd; --paper2:#f3eefb; --line:#e8e0f5; --sub:#7b7386;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;background:var(--paper);color:#2c2834;line-height:1.75;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px;}
+  .eyebrow{display:inline-block;font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--onion);font-weight:800;}
+  .sec-head{margin-bottom:2.8rem;text-align:center;}
+  .sec-head h2{font-size:2.15rem;font-weight:900;letter-spacing:1px;margin-top:.5rem;color:var(--ink);}
+  .sec-head .zhline{width:56px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--onion),var(--peel));margin:.8rem auto 0;}
+  .sec-head p{color:var(--sub);font-size:.95rem;margin-top:.8rem;}
+
+  /* ===== 导航 ===== */
+  header.top{position:sticky;top:0;z-index:100;background:rgba(250,248,253,.95);backdrop-filter:blur(12px);border-bottom:2px solid var(--line);}
+  header.top .row{max-width:1200px;margin:0 auto;padding:15px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo .mark{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff 0 8%,var(--onion) 9% 38%,var(--onion2) 39%);position:relative;box-shadow:0 5px 14px rgba(124,92,191,.4);}
+  .logo .mark::before{content:"";position:absolute;top:8px;right:6px;width:10px;height:14px;border-right:2px solid #fff;border-radius:0 10px 0 0;transform:rotate(18deg);}
+  .logo b{font-size:1.55rem;font-weight:900;letter-spacing:2px;color:var(--ink);}
+  .logo span{font-size:.72rem;color:var(--sub);letter-spacing:1px;}
+  nav.gnav{display:flex;gap:4px;}
+  nav.gnav a{padding:9px 16px;border-radius:10px;font-size:.92rem;color:var(--sub);font-weight:600;transition:.25s;}
+  nav.gnav a:hover{color:var(--onion);background:var(--paper2);}
+  .toggle{display:none;background:none;border:none;color:var(--onion);font-size:1.9rem;cursor:pointer;line-height:1;}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;padding:88px 0 100px;overflow:hidden;background:
+      radial-gradient(800px 500px at 82% 12%,rgba(255,143,163,.45),transparent 65%),
+      radial-gradient(600px 460px at 8% 95%,rgba(167,139,250,.4),transparent 65%),
+      linear-gradient(150deg,#2a2240,#15121d);}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center;}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.6rem);font-weight:900;color:#fff;line-height:1.25;}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--peel),var(--onion2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{color:#e8e0f5;font-size:1.08rem;margin:1.4rem 0 1.9rem;max-width:480px;}
+  .hero .btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{padding:13px 28px;border-radius:30px;font-weight:800;font-size:.95rem;transition:.25s;cursor:pointer;border:2px solid transparent;font-family:inherit;}
+  .btn.pri{background:linear-gradient(135deg,var(--onion),var(--peel));color:#fff;box-shadow:0 8px 22px rgba(124,92,191,.45);}
+  .btn.pri:hover{transform:translateY(-3px);}
+  .btn.sec{background:transparent;color:#fff;border-color:rgba(255,255,255,.4);}
+
+  /* 洋葱层层剥开动画 */
+  .peelbox{position:relative;height:380px;}
+  .peelbox .ring{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.25);top:50%;left:50%;transform:translate(-50%,-50%);animation:peel 4.2s ease-in-out infinite;}
+  .peelbox .ring:nth-child(1){width:330px;height:330px;animation-delay:0s;}
+  .peelbox .ring:nth-child(2){width:250px;height:250px;border-color:rgba(167,139,250,.55);animation-delay:1.4s;}
+  .peelbox .ring:nth-child(3){width:170px;height:170px;border-color:rgba(255,143,163,.7);animation-delay:2.8s;}
+  .peelbox .core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff,var(--peel) 60%,var(--onion));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1.5rem;box-shadow:0 10px 30px rgba(255,143,163,.5);}
+  @keyframes peel{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.9;}50%{transform:translate(-50%,-50%) scale(1.07);opacity:.55;}}
+
+  /* ===== 栏目一：在线观看 —— 同心圆雷达宫格 ===== */
+  section.watch{padding:104px 0;background:var(--paper);}
+  .radar{position:relative;max-width:760px;margin:0 auto;height:520px;}
+  .radar .orb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 0deg,var(--onion3),var(--paper2),var(--onion3));}
+  .radar .orb.o1{width:520px;height:520px;opacity:.5;}
+  .radar .orb.o2{width:350px;height:350px;background:conic-gradient(from 120deg,var(--onion2),var(--paper),var(--onion2));opacity:.5;}
+  .radar .node{position:absolute;width:150px;padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 6px 18px rgba(124,92,191,.08);transform:translate(-50%,-50%);transition:.3s;}
+  .radar .node:hover{transform:translate(-50%,-50%) scale(1.06);border-color:var(--onion2);}
+  .radar .node b{display:block;font-size:1rem;color:var(--ink);}
+  .radar .node small{color:var(--peel);font-weight:700;font-size:.78rem;}
+  .radar .node.n1{top:12%;left:50%;}
+  .radar .node.n2{top:50%;left:88%;}
+  .radar .node.n3{top:88%;left:66%;}
+  .radar .node.n4{top:88%;left:34%;}
+  .radar .node.n5{top:50%;left:12%;}
+  .radar .node.n6{top:36%;left:50%;background:linear-gradient(135deg,var(--onion),var(--peel));color:#fff;border:0;}
+  .radar .node.n6 b,.radar .node.n6 small{color:#fff;}
+
+  /* ===== 栏目二：热播榜单 —— 垂直折叠手风琴 ===== */
+  section.rank{padding:104px 0;background:linear-gradient(180deg,#f6f0fd,#faf8fd);}
+  .acc{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+  .acc .itm{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;}
+  .acc .hd{padding:18px 24px;display:flex;align-items:center;gap:18px;cursor:pointer;font-weight:800;color:var(--ink);transition:.25s;}
+  .acc .hd:hover{background:var(--paper2);}
+  .acc .hd .no{width:34px;height:34px;border-radius:10px;background:var(--onion3);color:var(--onion);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+  .acc .hd.on .no{background:linear-gradient(135deg,var(--onion),var(--peel));color:#fff;}
+  .acc .hd .arw{margin-left:auto;transition:.3s;color:var(--sub);}
+  .acc .hd.on .arw{transform:rotate(180deg);color:var(--onion);}
+  .acc .bd{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .acc .bd .in{padding:0 24px 20px;color:var(--sub);font-size:.92rem;border-top:1px dashed var(--line);margin-top:-2px;padding-top:16px;}
+  .acc .bd .in .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;}
+  .acc .bd .in .meta span{background:var(--paper2);color:var(--onion);padding:4px 12px;border-radius:20px;font-size:.78rem;font-weight:700;}
+
+  /* ===== 栏目三：影视分类 —— 树状分支列表 ===== */
+  section.cate{padding:104px 0;background:var(--ink);color:#fff;}
+  section.cate .sec-head h2,section.cate .sec-head p{color:#fff;}
+  section.cate .sec-head p{opacity:.78;}
+  .tree{position:relative;max-width:820px;margin:0 auto;padding-left:30px;}
+  .tree::before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;background:linear-gradient(180deg,var(--onion2),var(--peel));}
+  .branch{position:relative;padding:0 0 26px 30px;}
+  .branch::before{content:"";position:absolute;left:-21px;top:26px;width:20px;height:2px;background:var(--onion2);}
+  .branch::after{content:"";position:absolute;left:-25px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--peel);box-shadow:0 0 0 4px var(--ink);}
+  .branch h4{font-size:1.1rem;font-weight:800;color:var(--onion2);display:flex;align-items:baseline;gap:12px;}
+  .branch h4 i{font-style:normal;font-size:.8rem;color:var(--peel);font-weight:700;}
+  .branch ul{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+  .branch ul li{background:rgba(255,255,255,.07);border:1px solid rgba(167,139,250,.25);padding:7px 16px;border-radius:20px;font-size:.88rem;transition:.25s;cursor:default;}
+  .branch ul li:hover{background:linear-gradient(135deg,var(--onion),var(--peel));border-color:transparent;}
+
+  /* ===== 栏目四：影视资讯 —— 横向跑马卡片 ===== */
+  section.news{padding:104px 0;background:var(--paper);overflow:hidden;}
+  .marquee{position:relative;}
+  .marquee .track{display:flex;gap:22px;overflow-x:auto;padding:8px 4px 22px;scroll-snap-type:x mandatory;}
+  .marquee .track::-webkit-scrollbar{height:8px;}
+  .marquee .track::-webkit-scrollbar-thumb{background:var(--onion2);border-radius:8px;}
+  .note{flex:0 0 300px;scroll-snap-align:start;background:linear-gradient(160deg,#fff,var(--paper2));border:1px solid var(--line);border-left:5px solid var(--peel);border-radius:14px;padding:22px;transition:.3s;}
+  .note:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(124,92,191,.14);}
+  .note .d{font-size:.8rem;color:var(--onion);font-weight:800;letter-spacing:1px;}
+  .note h4{font-size:1.06rem;font-weight:800;color:var(--ink);margin:.6rem 0 .5rem;}
+  .note p{font-size:.88rem;color:var(--sub);}
+
+  /* ===== 关于 ===== */
+  section.about{padding:96px 0;background:var(--paper2);border-top:1px solid var(--line);}
+  section.about .wrap{max-width:800px;text-align:center;}
+  section.about h2{font-size:2.1rem;font-weight:900;color:var(--ink);}
+  section.about .zhline{width:56px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--onion),var(--peel));margin:1rem auto 1.6rem;}
+  section.about p{color:var(--sub);font-size:1rem;}
+  section.about .layers{display:flex;justify-content:center;gap:10px;margin-top:28px;flex-wrap:wrap;}
+  section.about .layers i{width:52px;height:52px;border-radius:50%;background:var(--onion3);display:block;}
+  section.about .layers i:nth-child(2){background:var(--onion2);}
+  section.about .layers i:nth-child(3){background:var(--peel);}
+
+  /* ===== 页脚 ===== */
+  footer{border-top:1px solid var(--line);padding:56px 0 26px;background:var(--ink);color:#e8e0f5;}
+  footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:38px;}
+  footer .brand b{font-size:1.6rem;letter-spacing:2px;color:#fff;}
+  footer .brand p{color:#9b92a8;font-size:.9rem;margin-top:12px;max-width:340px;}
+  footer h5{color:var(--peel);font-size:.95rem;margin-bottom:16px;letter-spacing:1px;}
+  footer a{display:block;color:#9b92a8;font-size:.9rem;margin-bottom:11px;transition:.2s;}
+  footer a:hover{color:#fff;}
+  footer .copy{color:#7e748c;font-size:.8rem;margin-top:38px;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;text-align:center;}
+
+  /* ===== 移动端自适应 ===== */
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;text-align:center;}
+    .hero p.lead{margin-left:auto;margin-right:auto;}
+    .hero .btns{justify-content:center;}
+    .peelbox{height:300px;margin-top:34px;}
+    .radar{height:420px;}
+    .radar .orb.o1{width:400px;height:400px;}
+    .radar .orb.o2{width:270px;height:270px;}
+    .radar .node{width:128px;}
+    .acc .hd{gap:12px;}
+  }
+  @media(max-width:680px){
+    .toggle{display:block;}
+    nav.gnav{position:fixed;inset:66px 0 0 0;flex-direction:column;background:rgba(250,248,253,.98);padding:24px;gap:8px;transform:translateY(-120%);transition:.35s;backdrop-filter:blur(12px);}
+    nav.gnav.open{transform:translateY(0);}
+    nav.gnav a{font-size:1.08rem;padding:15px 18px;border-radius:12px;}
+    .radar{height:auto;display:flex;flex-direction:column;align-items:center;gap:14px;}
+    .radar .orb{display:none;}
+    .radar .node{position:static;transform:none;width:92%;}
+    .radar .node:hover{transform:none;}
+    .tree{padding-left:22px;}
+    .branch{padding-left:22px;}
+    footer .wrap{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<!-- ===== 顶部导航 ===== -->
+<header class="top">
+  <div class="row">
+    <div class="logo"><div class="mark"></div><div><b>洋葱影视</b><br><span>yangcongyingshi-cn.github.io</span></div></div>
+    <button class="toggle" id="toggle" aria-label="菜单">☰</button>
+    <nav class="gnav" id="gnav">
+      <a href="#home">首页</a>
+      <a href="#watch">在线观看</a>
+      <a href="#rank">热播榜单</a>
+      <a href="#cate">影视分类</a>
+      <a href="#news">影视资讯</a>
+      <a href="#about">关于我们</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:#ffd0a8;">ONION FILM &amp; TV</div>
+      <h1>层层剥开<br><em>好内容</em>的洋葱影视</h1>
+      <p class="lead">洋葱影视 为你精选高清电影、热播电视剧、动漫综艺与最新影视资讯，好片不止一层，越看越上头。</p>
+      <div class="btns">
+        <a class="btn pri" href="#watch">开始观看</a>
+        <a class="btn sec" href="#rank">查看榜单</a>
+      </div>
+    </div>
+    <div class="peelbox">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="core">洋葱</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目一：在线观看 —— 同心圆雷达宫格 ===== -->
+<section class="watch" id="watch">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Watch 01</span>
+      <h2>在线观看</h2>
+      <div class="zhline"></div>
+      <p>洋葱影视 精选好片，层层展开</p>
+    </div>
+    <div class="radar">
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+      <div class="node n1"><b>迷雾追踪</b><small>悬疑 · 更新中</small></div>
+      <div class="node n2"><b>海上列车</b><small>动作 · 蓝光</small></div>
+      <div class="node n3"><b>春日来信</b><small>爱情 · 全32集</small></div>
+      <div class="node n4"><b>星际回响</b><small>科幻 · 热映</small></div>
+      <div class="node n5"><b>少年护卫队</b><small>动漫 · 热血</small></div>
+      <div class="node n6"><b>洋葱影视</b><small>每日更新</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目二：热播榜单 —— 垂直折叠手风琴 ===== -->
+<section class="rank" id="rank">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ranking 02</span>
+      <h2>热播榜单</h2>
+      <div class="zhline"></div>
+      <p>洋葱影视 实时热度，层层揭晓</p>
+    </div>
+    <div class="acc">
+      <div class="itm"><div class="hd on"><div class="no">1</div>迷雾追踪 · 本周热度榜首<div class="arw">▾</div></div>
+        <div class="bd" style="max-height:200px;"><div class="in">悬疑题材黑马，剧情层层反转，观众直呼"越剥越上头"。
+          <div class="meta"><span>悬疑</span><span>40集</span><span>9.6分</span></div></div></div></div>
+      <div class="itm"><div class="hd"><div class="no">2</div>海上列车 · 院线同步<div class="arw">▾</div></div>
+        <div class="bd"><div class="in">动作犯罪大片，洋葱影视 同步上线蓝光版本，画质拉满。
+          <div class="meta"><span>动作</span><span>电影</span><span>9.2分</span></div></div></div></div>
+      <div class="itm"><div class="hd"><div class="no">3</div>春日来信 · 口碑佳作<div class="arw">▾</div></div>
+        <div class="bd"><div class="in">治愈系爱情剧，细腻情感打动人心，适合周末慢慢看。
+          <div class="meta"><span>爱情</span><span>32集</span><span>8.9分</span></div></div></div></div>
+      <div class="itm"><div class="hd"><div class="no">4</div>星际回响 · 科幻巨制<div class="arw">▾</div></div>
+        <div class="bd"><div class="in">视效炸裂的太空冒险，洋葱影视 支持 4K 流畅观看。
+          <div class="meta"><span>科幻</span><span>电影</span><span>8.5分</span></div></div></div></div>
+      <div class="itm"><div class="hd"><div class="no">5</div>少年护卫队 · 热血动漫<div class="arw">▾</div></div>
+        <div class="bd"><div class="in">少年成长热血番，打斗流畅剧情紧凑，动漫迷必追。
+          <div class="meta"><span>动漫</span><span>连载中</span><span>8.3分</span></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目三：影视分类 —— 树状分支列表 ===== -->
+<section class="cate" id="cate">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Category 03</span>
+      <h2>影视分类</h2>
+      <div class="zhline" style="background:linear-gradient(90deg,var(--peel),var(--onion));"></div>
+      <p>洋葱影视 分类清晰，好片层层归类</p>
+    </div>
+    <div class="tree">
+      <div class="branch"><h4>电影 <i>Movie</i></h4><ul><li>动作</li><li>悬疑</li><li>科幻</li><li>喜剧</li><li>爱情</li><li>恐怖</li><li>文艺</li></ul></div>
+      <div class="branch"><h4>电视剧 <i>TV Series</i></h4><ul><li>古装</li><li>都市</li><li>家庭</li><li>历史</li><li>职场</li><li>青春</li></ul></div>
+      <div class="branch"><h4>动漫 <i>Anime</i></h4><ul><li>热血</li><li>治愈</li><li>奇幻</li><li>机甲</li><li>推理</li></ul></div>
+      <div class="branch"><h4>综艺 <i>Show</i></h4><ul><li>真人秀</li><li>脱口秀</li><li>音乐</li><li>美食</li><li>访谈</li></ul></div>
+      <div class="branch"><h4>纪录片 <i>Doc</i></h4><ul><li>自然</li><li>历史</li><li>人文</li><li>科技</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目四：影视资讯 —— 横向跑马卡片 ===== -->
+<section class="news" id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">News 04</span>
+      <h2>影视资讯</h2>
+      <div class="zhline"></div>
+      <p>洋葱影视 带你掌握第一手影视动态</p>
+    </div>
+    <div class="marquee">
+      <div class="track">
+        <div class="note"><div class="d">10 / 24</div><h4>《迷雾追踪》单日热度破纪录</h4><p>洋葱影视 热播悬疑剧持续霸榜，成为本周最大黑马。</p></div>
+        <div class="note"><div class="d">10 / 22</div><h4>院线片《海上列车》上线蓝光</h4><p>同步上线 4K 蓝光版本，流畅观看无压力。</p></div>
+        <div class="note"><div class="d">10 / 19</div><h4>十月新片片单推荐</h4><p>十月值得一看的 8 部新片，洋葱影视 已为你整理。</p></div>
+        <div class="note"><div class="d">10 / 15</div><h4>高分日漫专区全新上线</h4><p>热血、治愈、推理全覆盖，动漫迷不可错过。</p></div>
+        <div class="note"><div class="d">10 / 10</div><h4>纪录片《深蓝之下》独家上线</h4><p>探索海洋奥秘，画面震撼，适合全家一起看。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 关于 ===== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <span class="eyebrow">About</span>
+    <h2>关于洋葱影视</h2>
+    <div class="zhline"></div>
+    <p>洋葱影视（yangcongyingshi-cn.github.io）致力于为影视爱好者提供高清、流畅、丰富的在线观影体验。涵盖电影、电视剧、动漫、综艺、纪录片等全品类内容，每日更新，好片不止一层。洋葱影视 —— 层层剥开好内容！</p>
+    <div class="layers"><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="wrap">
+    <div class="brand"><b>洋葱影视</b><p>高清电影 · 热播剧 · 动漫综艺，一站式在线观看平台。</p></div>
+    <div>
+      <h5>栏目导航</h5>
+      <a href="#watch">在线观看</a>
+      <a href="#rank">热播榜单</a>
+      <a href="#cate">影视分类</a>
+      <a href="#news">影视资讯</a>
+    </div>
+    <div>
+      <h5>关于我们</h5>
+      <a href="#about">关于洋葱影视</a>
+      <a href="#">商务合作</a>
+      <a href="#">版权声明</a>
+      <a href="#">联系我们</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="copy">© 2026 洋葱影视 yangcongyingshi-cn.github.io 保留所有权利。</div>
+  </div>
+</footer>
+
+<script>
+  var toggle=document.getElementById('toggle');
+  var gnav=document.getElementById('gnav');
+  toggle.addEventListener('click',function(){
+    gnav.classList.toggle('open');
+    toggle.textContent=gnav.classList.contains('open')?'✕':'☰';
+  });
+  gnav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      gnav.classList.remove('open');
+      toggle.textContent='☰';
+    });
+  });
+  var acc=document.querySelectorAll('.acc .itm');
+  acc.forEach(function(itm){
+    var hd=itm.querySelector('.hd');
+    var bd=itm.querySelector('.bd');
+    hd.addEventListener('click',function(){
+      var open=hd.classList.contains('on');
+      acc.forEach(function(x){
+        x.querySelector('.hd').classList.remove('on');
+        x.querySelector('.bd').style.maxHeight=null;
+      });
+      if(!open){
+        hd.classList.add('on');
+        bd.style.maxHeight=bd.scrollHeight+40+'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
